@@ -13,4 +13,4 @@ If you have not read the [Guide for New Volunteers](https://www.hackforla.org/ge
 1. Join our OPS Community of Practice meeting Tuesdays at 8 pm PST via [Zoom](https://us02web.zoom.us/j/86511112084?pwd=eTVjMnNPSlp6Ry9GQ1c4WHl3RlV5Zz09).
 1. Check out the [open OPS roles](https://github.com/hackforla/product-management/projects/8) we have available.
 
-The OPS Community of Practice is one of many.  [See all our Communities of Practices](https://github.com/hackforla/communities-of-practice/blob/main/README.md)
+The OPS Community of Practice is one of many.  [See all our Communities of Practices](https://github.com/hackforla/communities-of-practice/blob/main/README.md).
