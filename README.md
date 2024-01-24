@@ -1,16 +1,37 @@
-# OPS Community of Practice 
+# Ops Community of Practice  
 
-Welcome to the OPS Community of Practice. We are happy you are here!
+Welcome to the Ops Community of Practice. We are happy you are here! Please follow the steps below to get started:
 
-## Let's get Started
 
-If you have not read the [Guide for New Volunteers](https://www.hackforla.org/getting-started), please do so.  
+## When We Meet
 
-1. Join the [OPS](https://hackforla.slack.com/archives/CV7QGL66B) Slack channel and introduce yourself.
-1. Slack our OPS Community of Practice lead Jason Ebueng with your Gmail address.
-1. Accept your Google Drive invite to access the [shared folder](https://drive.google.com/drive/u/0/folders/1RH_2ZJs1cAY1JNqqEQwUOcyd1yqk_lvj).
-1. Add yourself to the [Team Roster](https://docs.google.com/spreadsheets/d/1i5xfT-QYkR4AGn8x80nHkw8HYTed4T-GDKxsSwC8I58/edit) and inform Jason after you have done so.
-1. Join our OPS Community of Practice meeting Wednesdays at 6 pm PST via [Zoom](https://us02web.zoom.us/j/84240551835?pwd=cFRGVy9DMnl1QzJPdTlRMlVnV2FvZz09).
-1. Check out the [open OPS roles](https://github.com/hackforla/ops/projects/1) we have available.
+Wednesday nights 6:00PM Pacific Time
 
-The OPS Community of Practice is one of many.  [See all our Communities of Practices](https://github.com/hackforla/communities-of-practice/blob/main/README.md).
+
+## Let's Get Started
+
+If you have not attended Hack for LA onboarding, plase read the [Guide for New Volunteers](https://www.hackforla.org/getting-started), and register for an upcoming onboarding session.  
+
+
+### Step 1. Join Software Engineering Community of Practice
+
+1. Join the [#ops](https://hackforla.slack.com/archives/CV7QGL66B) Slack channel and introduce yourself.
+2. Slack an [Ops Community of Practice lead]([https://www.hackforla.org/communities-of-practice](https://github.com/hackforla/ops/wiki/Community#ops-community-of-practice-cop-leads)) with your Gmail address.
+3. Accept your Google Drive invite to access the [shared folder]([https://drive.google.com/drive/u/0/folders/1xWllQli2wUSsRF9OaSQBBQ1vaY7kRkAT](https://drive.google.com/drive/folders/1XBuLSjOEKGfeVvWluIDyPYXTKHXhYHDM?usp=sharing)).
+
+### Step 2. Familiarize with Our Processes
+
+1. All Hack for LA teams use Kanban boards to encourage continuous improvements at all the level of the organization. Learn more about Kanban with our [Guide to How-To Use Our Github Kanban Board](https://docs.google.com/document/d/11Fe7mNdmPBP5bD_yLJ1C0_I1TmoK47AuHHrdhdDyWCs/edit#heading=h.nl3p4nf4eqb4) (working draft).
+2. Kanban is one of the popular frameworks used to implement agile development. Learn more about [Agile](https://www.atlassian.com/agile).
+3. Check out the currently [open Ops roles](https://github.com/hackforla/ops/projects/1).
+
+
+### Step 3. Join the CoP Meeting - Come Meet Engineers from All Teams
+
+* Join our Ops Community of Practice meeting Wednesdays at 6 PM PST
+* Take the [Remote Onboarding Survey](https://docs.google.com/forms/d/e/1FAIpQLScXnJSyCXgO_RCAuCyOkG4sqGILpAepTlJ0HOaK4H_ccEVmNw/viewform) to provide feedback about your experience joining Hack for LA.
+
+The Engineering Community of Practice is one of many.  [See all our Communities of Practices](https://github.com/hackforla/communities-of-practice/blob/main/README.md)
+
+See our [Code of Conduct](./CODEOFCONDUCT.md) and [License](./LICENSE) documents.
+
