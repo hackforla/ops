@@ -21,3 +21,4 @@ We need to remove [NEW LEAD NAME] from the Ops CoP leads team.
 - [ ] Send name and email to Admin on Slack and ask to remove from 1 Password vaults:
     - Ops vault
     - Zoom vault
+- [ ] Remove from monthly CoP leads calendar
