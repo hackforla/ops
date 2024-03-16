@@ -1,8 +1,7 @@
 name: Schedule Sunday 0700
 
 on:
-  schedule:
-    - cron:  '0 7 * * 0'
+  push:
 
 jobs:
   Add-Update-Label-to-Issues-Weekly:
