@@ -1,6 +1,6 @@
 /**
  * Function that returns the issue's timeline of events.
- * https://docs.github.com/en/rest/issues/events?apiVersion=2022-11-28#list-issue-events
+ * https://octokit.github.io/rest.js/v20#issues-list-events-for-timeline
  * @param {number} issue_number
  * @returns {Array} of Objects containing the issue's timeline of events
  */
@@ -12,7 +12,7 @@ async function getTimeline(issue_number, github, context) {
 
   while (true) {
     try {
-      const { data } = await github.rest.issues.listEventsForTimelineArr({
+      const { data } = await github.rest.issues.listEventsForTimeline({
         owner,
         repo,
         issue_number,
