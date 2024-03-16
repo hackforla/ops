@@ -7,8 +7,8 @@
 async function getTimeline(issue_number, github, context) {
   const { owner, repo } = context.repo;
   let timelineArr = [];
-  let page = 1;
-  const per_page = 100;
+  let page = 1, retries = 0;
+  const per_page = 100, maxRetries = 5;
 
   while (true) {
     try {
@@ -21,15 +21,21 @@ async function getTimeline(issue_number, github, context) {
       });
       if (data.length) {
         timelineArr = timelineArr.concat(data);
+        page++;
       } else {
         break;
       }
     } catch (err) {
-      console.error(err);
-      continue;
-    }
-    finally {
-      page++;
+      if (err instanceof TypeError) throw new Error(err);
+      if (retries < maxRetries) {
+        const delay = Math.pow(2, retries) * 1000;
+        console.log(`Retrying in ${delay} milliseconds...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        retries++;
+      } else {
+        console.error(err);
+        throw new Error(`Failed to fetch timeline for issue ${issue_number}`);
+      }
     }
   }
   return timelineArr;
