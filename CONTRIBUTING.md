@@ -17,6 +17,13 @@ The following guidelines are for contributing to the ops repository hosted on Gi
   - [**Table of Contents**](#table-of-contents)
   - [**Setting up the local development environment**](#setting-up-the-local-development-environment)
   - [**Fork the repository**](#fork-the-repository)
+    - [**Clone (Create) a copy on your computer**](#clone-create-a-copy-on-your-computer)
+      - [Clone repo (1): Create `hackforla` folder\*\*](#clone-repo-1-create-hackforla-folder)
+      - [Clone repo (2): Verify `origin` remote url\*\*](#clone-repo-2-verify-origin-remote-url)
+      - [What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?\*\*](#what-if-you-accidentally-cloned-using-the-repository-url-from-the-hackforla-github-instead-of-the-fork-on-your-github)
+      - [**1.4.b Clone repo (2): Verify `origin` remote url**](#14b-clone-repo-2-verify-origin-remote-url)
+      - [**What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?**](#what-if-you-accidentally-cloned-using-the-repository-url-from-the-hackforla-github-instead-of-the-fork-on-your-github-1)
+        - [**ii. Resolve remote (2): Add an `upstream` remote**](#ii-resolve-remote-2-add-an-upstream-remote)
 
 ## **Setting up the local development environment**
 
@@ -43,3 +50,120 @@ Fork the hackforla/ops repository by clicking <a href="https://github.com/hackfo
 **Be Aware:** What you have created is a forked copy in a remote version on GitHub. It is not yet on your local machine yet.
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
+
+### **Clone (Create) a copy on your computer**
+
+Before creating a copy to your local machine, you must have Git installed. You can find instructions for installing Git for your operating system [**here**](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+The following steps will clone (create) a local copy of the forked repository on your computer.
+
+#### Clone repo (1): Create `hackforla` folder\*\*
+
+Create a new folder in your computer that will contain `hackforla` projects.
+
+In your command line interface (Terminal, Git Bash, Powershell), move to where you want your new folder to be placed and create a new folder in your computer that will contain `hackforla` projects. After that, navigate into the folder(directory) you just created.
+
+For example:
+
+```bash
+mkdir hackforla
+cd hackforla
+```
+
+and run the following commands:
+
+```bash
+git clone https://github.com/<your_GitHub_user_name>/ops.git
+```
+
+For example if your GitHub username was `octocat`:
+
+```bash
+git clone https://github.com/octocat/ops.git
+```
+
+You should now have a new folder in your `hackforla` folder called `ops`. Verify this by changing into the new directory:
+
+```bash
+cd ops
+```
+
+#### Clone repo (2): Verify `origin` remote url\*\*
+
+Verify that your local cloned repository is pointing to the correct `origin` URL (that is, the forked repo on your own Github account):
+
+```bash
+git remote -v
+```
+
+You should see `fetch` and `push` URLs with links to your forked repository under your account (i.e. `https://github.com/<your_GitHub_user_name>/ops.git`). You are all set to make working changes to the website on your local machine.
+
+However, we still need a way to keep our local repo up to date with the deployed website. To do so, you must add an upstream remote to incorporate changes made while you are working on your local repo. Run the following to add an upstream remote URL & update your local repo with recent changes to the `hackforla` version:
+
+```bash
+git remote add upstream https://github.com/hackforla/ops.git
+git fetch upstream
+```
+
+After adding the upstream remote, you should now see it if you again run `git remote -v` :
+
+```bash
+origin  https://github.com/<your_GitHub_user_name>/ops.git (fetch)
+origin  https://github.com/<your_GitHub_user_name>/ops.git (push)
+upstream        https://github.com/hackforla/ops.git (fetch)
+upstream        https://github.com/hackforla/ops.git (push)
+```
+
+#### What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?\*\*
+
+#### **1.4.b Clone repo (2): Verify `origin` remote url**
+
+Verify that your local cloned repository is pointing to the correct `origin` URL (that is, the forked repo on your own Github account):
+
+```bash
+git remote -v
+```
+
+You should see `fetch` and `push` URLs with links to your forked repository under your account (i.e. `https://github.com/<your_GitHub_user_name>/website.git`). You are all set to make working changes to the website on your local machine.
+
+However, we still need a way to keep our local repo up to date with the deployed website. To do so, you must add an upstream remote to incorporate changes made while you are working on your local repo. Run the following to add an upstream remote URL & update your local repo with recent changes to the `hackforla` version:
+
+```bash
+git remote add upstream https://github.com/hackforla/website.git
+git fetch upstream
+```
+
+After adding the upstream remote, you should now see it if you again run `git remote -v` :
+
+```bash
+origin  https://github.com/<your_GitHub_user_name>/website.git (fetch)
+origin  https://github.com/<your_GitHub_user_name>/website.git (push)
+upstream        https://github.com/hackforla/website.git (fetch)
+upstream        https://github.com/hackforla/website.git (push)
+```
+
+#### **What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?**
+
+Set your forked repo on your Github as an `origin` remote:
+
+```bash
+git remote set-url origin https://github.com/<your_GitHub_user_name>/ops.git
+```
+
+For example if your GitHub username was `octocat`:
+
+```bash
+git remote set-url origin https://github.com/octocat/ops.git
+```
+
+##### **ii. Resolve remote (2): Add an `upstream` remote**
+
+Add another remote called `upstream` that points to the `hackforla` version of the repository. This will allow you to incorporate changes later:
+
+```bash
+git remote add upstream https://github.com/hackforla/ops.git
+```
+
+<sub>[Back to Table of Contents](#table-of-contents)</sub>
+
+---
