@@ -239,3 +239,33 @@ git push --set-upstream add-contributing-md-120
 ```
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
+
+### **Making a pull request**
+
+##### **i. Complete pull request (1): Update pull request title**
+
+The default title will be the same as your last commit message from your branch. Please modify it to summarize your changes.
+
+```
+Add contributing markdown file to repo
+```
+
+##### **ii. Complete pull request (2): Add issue number to the pull request**
+
+We use a Github action that automatically closes all issues linked to a pull request. Therefor you need put issue number in your pull request.
+**From**
+
+```
+Fixes #replace_this_text_with_the_issue_number
+```
+
+**To**
+
+```
+Fixes #120
+```
+
+##### **iii. Complete pull request (3): Explain the changes you made, then explain why these changes were needed**
+
+In bullet point form, explain the changes you made in order to complete the action items within your issue and why.
+<sub>[Back to Table of Contents](#table-of-contents)</sub>
