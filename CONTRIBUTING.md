@@ -17,16 +17,18 @@ The following guidelines are for contributing to the ops repository hosted on Gi
   - [**Table of Contents**](#table-of-contents)
   - [**Setting up the local development environment**](#setting-up-the-local-development-environment)
   - [**Fork the repository**](#fork-the-repository)
-    - [**Clone (Create) a copy on your computer**](#clone-create-a-copy-on-your-computer)
-      - [Clone repo (1): Create `hackforla` folder\*\*](#clone-repo-1-create-hackforla-folder)
-      - [Clone repo (2): Verify `origin` remote url\*\*](#clone-repo-2-verify-origin-remote-url)
-      - [What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?\*\*](#what-if-you-accidentally-cloned-using-the-repository-url-from-the-hackforla-github-instead-of-the-fork-on-your-github)
-        - [**i. Resolve remote (1): reset `origin` remote url**](#i-resolve-remote-1-reset-origin-remote-url)
-        - [**ii. Resolve remote (2): Add an `upstream` remote**](#ii-resolve-remote-2-add-an-upstream-remote)
-    - [**Working on an issue**](#working-on-an-issue)
-      - [**Working on an issue (1): Verify current branch is `master`**](#working-on-an-issue-1-verify-current-branch-is-master)
-      - [**Working on an issue (2): Create a new branch where you will work on your issue**](#working-on-an-issue-2-create-a-new-branch-where-you-will-work-on-your-issue)
-      - [Branch name convention](#branch-name-convention)
+  - [**Clone (Create) a copy on your computer**](#clone-create-a-copy-on-your-computer)
+    - [Clone repo (1): Create `hackforla` folder\*\*](#clone-repo-1-create-hackforla-folder)
+    - [Clone repo (2): Verify `origin` remote url\*\*](#clone-repo-2-verify-origin-remote-url)
+    - [What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?\*\*](#what-if-you-accidentally-cloned-using-the-repository-url-from-the-hackforla-github-instead-of-the-fork-on-your-github)
+      - [**i. Resolve remote (1): reset `origin` remote url**](#i-resolve-remote-1-reset-origin-remote-url)
+      - [**ii. Resolve remote (2): Add an `upstream` remote**](#ii-resolve-remote-2-add-an-upstream-remote)
+  - [**Working on an issue**](#working-on-an-issue)
+    - [**Working on an issue (1): Verify current branch is `master`**](#working-on-an-issue-1-verify-current-branch-is-master)
+    - [**Working on an issue (2): Create a new branch where you will work on your issue**](#working-on-an-issue-2-create-a-new-branch-where-you-will-work-on-your-issue)
+    - [Branch name convention](#branch-name-convention)
+    - [**Working on an issue(3): Prepare your changes to push to your repository**](#working-on-an-issue3-prepare-your-changes-to-push-to-your-repository)
+  - [**Making a pull request**](#making-a-pull-request)
 
 ## **Setting up the local development environment**
 
@@ -185,3 +187,55 @@ Here `add-contributing-md-120` is your branch name
 **Note:** The format should resemble the scheme above, with words that briefly describe the issue in a way that is understandable at a glance to someone unfamiliar with the problem. The issue number should be included at the end.
 
 **Note:** Git uses spaces as delimiters in various commands, so branch names cannot contain spaces.
+
+#### **Working on an issue(3): Prepare your changes to push to your repository**
+
+##### **i. Prepare repo changes (1): Use the `git add` command to stage your changes.**
+
+This command prepares your changes for the next commit. You can stage files individually by specifying their filenames.
+
+Run this command if you want to **add changes from a specific file(s) to your commit record**:
+
+```bash
+git add “filename.ext”
+```
+
+Run this command if you want to **add all changes to all file(s) to your commit record**:
+
+```bash
+git add .
+```
+
+##### **ii. Prepare repos changes (2): Use the `git status` command to see what files are staged.**
+
+This command display a list of files that have been staged for the next commit. These files will be included in the commit when you run `git commit`. Ensure that all staged changes are relevant to the current task if you accidentally staged unrelated changes, you can unstage them before committing by following the instructions provided in the output of your `git status` command.
+
+```bash
+git status
+```
+
+##### **iii. Prepare repos changes (3): Use the `git commit` command**
+
+This command saves your changes and prepares them for pushing to your repository. You can use the `-m` flag to add a message to your commit. The message should be a brief description of the issue you are addressing. It is important to make the message clear and understandable to others who may read it. Avoid being overly cryptic in your message.
+
+To commit your changes with a message, run:
+
+```bash
+git commit -m “your commit message”
+```
+
+#### **Working on an issue(4): Pulling from upstream before you push**
+
+**IMPORTANT:** Before you push your local commits to your repository, sync your fork with the `master` branch of the `origin` remote repository. Use `git pull upstream` to ensure your local repository is up-to-date with the `master` branch of the `origin` remote repository.
+
+```bash
+git pull upstream
+```
+
+After committing your changes locally, you can use below commands to push your committed changes to a remote repository, making them accessible to others working on the same projects.
+
+```bash
+git push --set-upstream add-contributing-md-120
+```
+
+<sub>[Back to Table of Contents](#table-of-contents)</sub>
