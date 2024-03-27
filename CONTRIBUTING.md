@@ -21,9 +21,12 @@ The following guidelines are for contributing to the ops repository hosted on Gi
       - [Clone repo (1): Create `hackforla` folder\*\*](#clone-repo-1-create-hackforla-folder)
       - [Clone repo (2): Verify `origin` remote url\*\*](#clone-repo-2-verify-origin-remote-url)
       - [What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?\*\*](#what-if-you-accidentally-cloned-using-the-repository-url-from-the-hackforla-github-instead-of-the-fork-on-your-github)
-      - [**1.4.b Clone repo (2): Verify `origin` remote url**](#14b-clone-repo-2-verify-origin-remote-url)
-      - [**What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?**](#what-if-you-accidentally-cloned-using-the-repository-url-from-the-hackforla-github-instead-of-the-fork-on-your-github-1)
+        - [**i. Resolve remote (1): reset `origin` remote url**](#i-resolve-remote-1-reset-origin-remote-url)
         - [**ii. Resolve remote (2): Add an `upstream` remote**](#ii-resolve-remote-2-add-an-upstream-remote)
+    - [**Working on an issue**](#working-on-an-issue)
+      - [**Working on an issue (1): Verify current branch is `master`**](#working-on-an-issue-1-verify-current-branch-is-master)
+      - [**Working on an issue (2): Create a new branch where you will work on your issue**](#working-on-an-issue-2-create-a-new-branch-where-you-will-work-on-your-issue)
+      - [Branch name convention](#branch-name-convention)
 
 ## **Setting up the local development environment**
 
@@ -116,33 +119,7 @@ upstream        https://github.com/hackforla/ops.git (push)
 
 #### What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?\*\*
 
-#### **1.4.b Clone repo (2): Verify `origin` remote url**
-
-Verify that your local cloned repository is pointing to the correct `origin` URL (that is, the forked repo on your own Github account):
-
-```bash
-git remote -v
-```
-
-You should see `fetch` and `push` URLs with links to your forked repository under your account (i.e. `https://github.com/<your_GitHub_user_name>/website.git`). You are all set to make working changes to the website on your local machine.
-
-However, we still need a way to keep our local repo up to date with the deployed website. To do so, you must add an upstream remote to incorporate changes made while you are working on your local repo. Run the following to add an upstream remote URL & update your local repo with recent changes to the `hackforla` version:
-
-```bash
-git remote add upstream https://github.com/hackforla/website.git
-git fetch upstream
-```
-
-After adding the upstream remote, you should now see it if you again run `git remote -v` :
-
-```bash
-origin  https://github.com/<your_GitHub_user_name>/website.git (fetch)
-origin  https://github.com/<your_GitHub_user_name>/website.git (push)
-upstream        https://github.com/hackforla/website.git (fetch)
-upstream        https://github.com/hackforla/website.git (push)
-```
-
-#### **What if you accidentally cloned using the repository URL from the HackForLA Github (instead of the fork on your Github)?**
+##### **i. Resolve remote (1): reset `origin` remote url**
 
 Set your forked repo on your Github as an `origin` remote:
 
@@ -166,4 +143,45 @@ git remote add upstream https://github.com/hackforla/ops.git
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
 
----
+### **Working on an issue**
+
+Create a new branch for each issue you work on. Doing all your work on topic branches leaves your repository's main branch (named `master`) unmodified and greatly simplifies keeping your fork in sync with the main project.
+
+#### **Working on an issue (1): Verify current branch is `master`**
+
+first make sure you are on the master branch.
+
+```bash
+git checkout master
+```
+
+Update your master branch with the latest changes
+
+```
+git pull upstream master
+```
+
+<sub>[Back to Table of Contents](#table-of-contents)</sub>
+
+#### **Working on an issue (2): Create a new branch where you will work on your issue**
+
+Using `git checkout -b` command to create a new branch and immediately switch into it.
+
+#### Branch name convention
+
+Choose a branch name that:
+
+- relates to the issue (No spaces!)
+- includes the issue number
+
+For example, if you create a new issue branch for [Add a CONTRIBUTING.md to the Ops repo #120](https://github.com/hackforla/ops/issues/120):
+
+```bash
+git checkout -b add-contributing-md-120
+```
+
+Here `add-contributing-md-120` is your branch name
+
+**Note:** The format should look like the scheme above where the words are a brief description of the issue that will make sense at a glance to someone unfamiliar with the issue. And at the end is your issue number.
+
+**Note:** Git uses spaces as delimiters in various commands, so branch names cannot contain spaces.
