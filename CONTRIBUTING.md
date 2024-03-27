@@ -246,11 +246,7 @@ git push --set-upstream add-contributing-md-120
 
 The default title will be your branch name. Please modify it as you see fit.
 
-```
-Add contributing markdown file to repo
-```
-
-##### **ii. Complete pull request (3): Explain the changes you made, then explain why these changes were needed**
+##### **ii. Complete pull request (2): Explain the changes you made, then explain why these changes were needed**
 
 In description area, describe the changes you made to complete the action items in your issue and explain the reasons behind those changes.
 
