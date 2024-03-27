@@ -250,23 +250,8 @@ The default title will be the same as your last commit message from your branch.
 Add contributing markdown file to repo
 ```
 
-##### **ii. Complete pull request (2): Add issue number to the pull request**
+##### **ii. Complete pull request (3): Explain the changes you made, then explain why these changes were needed**
 
-We use a Github action that automatically closes all issues linked to a pull request. Therefor you need put issue number in your pull request.
-**From**
-
-```
-Fixes #replace_this_text_with_the_issue_number
-```
-
-**To**
-
-```
-Fixes #120
-```
-
-##### **iii. Complete pull request (3): Explain the changes you made, then explain why these changes were needed**
-
-In bullet point form, explain the changes you made in order to complete the action items within your issue and why.
+In textarea, explain the changes you made in order to complete the action items within your issue and why.
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
