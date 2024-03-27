@@ -268,4 +268,5 @@ Fixes #120
 ##### **iii. Complete pull request (3): Explain the changes you made, then explain why these changes were needed**
 
 In bullet point form, explain the changes you made in order to complete the action items within your issue and why.
+
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
