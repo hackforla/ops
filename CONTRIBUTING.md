@@ -244,7 +244,7 @@ git push --set-upstream add-contributing-md-120
 
 ##### **i. Complete pull request (1): Update pull request title**
 
-The default title will be the same as your last commit message from your branch. Please modify it to summarize your changes.
+The default title will be your branch name. Please modify it as you see fit.
 
 ```
 Add contributing markdown file to repo
@@ -252,6 +252,6 @@ Add contributing markdown file to repo
 
 ##### **ii. Complete pull request (3): Explain the changes you made, then explain why these changes were needed**
 
-In textarea, explain the changes you made in order to complete the action items within your issue and why.
+In description area, describe the changes you made to complete the action items in your issue and explain the reasons behind those changes.
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
