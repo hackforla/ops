@@ -62,9 +62,9 @@ The following steps will clone (create) a local copy of the forked repository on
 
 #### Clone repo (1): Create `hackforla` folder\*\*
 
-Create a new folder in your computer that will contain `hackforla` projects.
+Create a new folder on your computer that will contain `hackforla` projects.
 
-In your command line interface (Terminal, Git Bash, Powershell), move to where you want your new folder to be placed and create a new folder in your computer that will contain `hackforla` projects. After that, navigate into the folder(directory) you just created.
+Navigate to the location where you want to create a new folder for your `hackforla` projects using your command line interface(Terminal, Git Bash, Powershell). Create a new folder on your computer to hold these projects. Then, navigate into the newly created folder.
 
 For example:
 
@@ -101,7 +101,7 @@ git remote -v
 
 You should see `fetch` and `push` URLs with links to your forked repository under your account (i.e. `https://github.com/<your_GitHub_user_name>/ops.git`). You are all set to make working changes to the website on your local machine.
 
-However, we still need a way to keep our local repo up to date with the deployed website. To do so, you must add an upstream remote to incorporate changes made while you are working on your local repo. Run the following to add an upstream remote URL & update your local repo with recent changes to the `hackforla` version:
+However, we still need a way to keep our local repo up to date with the original repository. To do so, you must add an upstream remote to incorporate changes made while you are working on your local repo. Run the following to add an upstream remote URL & update your local repo with recent changes to the `origin master` branch:
 
 ```bash
 git remote add upstream https://github.com/hackforla/ops.git
@@ -135,7 +135,7 @@ git remote set-url origin https://github.com/octocat/ops.git
 
 ##### **ii. Resolve remote (2): Add an `upstream` remote**
 
-Add another remote called `upstream` that points to the `hackforla` version of the repository. This will allow you to incorporate changes later:
+Add a new remote named `upstream` that points to the `hackforla` repository version. This step will enable you to integrate changes from that repository later on.
 
 ```bash
 git remote add upstream https://github.com/hackforla/ops.git
@@ -145,7 +145,7 @@ git remote add upstream https://github.com/hackforla/ops.git
 
 ### **Working on an issue**
 
-Create a new branch for each issue you work on. Doing all your work on topic branches leaves your repository's main branch (named `master`) unmodified and greatly simplifies keeping your fork in sync with the main project.
+For each issue you address, create a new branch. Working on topic branches ensures that your main branch(named `master`)remains untouched and makes it easier to synchronize your fork with the main project.
 
 #### **Working on an issue (1): Verify current branch is `master`**
 
@@ -182,6 +182,6 @@ git checkout -b add-contributing-md-120
 
 Here `add-contributing-md-120` is your branch name
 
-**Note:** The format should look like the scheme above where the words are a brief description of the issue that will make sense at a glance to someone unfamiliar with the issue. And at the end is your issue number.
+**Note:** The format should resemble the scheme above, with words that briefly describe the issue in a way that is understandable at a glance to someone unfamiliar with the problem. The issue number should be included at the end.
 
 **Note:** Git uses spaces as delimiters in various commands, so branch names cannot contain spaces.
