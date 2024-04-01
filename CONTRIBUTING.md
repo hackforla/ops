@@ -147,20 +147,20 @@ git remote add upstream https://github.com/hackforla/ops.git
 
 ### **Working on an issue**
 
-For each issue you address, create a new branch. Working on topic branches ensures that your main branch(named `master`)remains untouched and makes it easier to synchronize your fork with the main project.
+For each issue you address, create a new branch. Working on topic branches ensures that your main branch(named `main`) remains untouched and makes it easier to synchronize your fork with the main project.
 
-#### **Working on an issue (1): Verify current branch is `master`**
+#### **Working on an issue (1): Verify current branch is `main`**
 
-first make sure you are on the master branch.
+first make sure you are on the main branch.
 
 ```bash
-git checkout master
+git checkout main
 ```
 
-Update your master branch with the latest changes
+Update your main branch with the latest changes
 
 ```
-git pull upstream master
+git pull upstream main
 ```
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
@@ -235,7 +235,7 @@ git pull upstream
 After committing your changes locally, you can use below commands to push your committed changes to a remote repository, making them accessible to others working on the same projects.
 
 ```bash
-git push --set-upstream add-contributing-md-120
+git push --set-upstream origin add-contributing-md-120
 ```
 
 <sub>[Back to Table of Contents](#table-of-contents)</sub>
