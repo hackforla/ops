@@ -32,7 +32,7 @@ async function main({ g, c }, columnId) {
   github = g;
   context = c;
   // Retrieve all issue numbers from a column
-  const issueNums = getIssueNumsFromColumn(columnId);
+  const issueNums = 1 // getIssueNumsFromColumn(columnId);
   for await (const issueNum of issueNums) {
     const timeline = await getTimeline(issueNum, github, context);
     const assignees = await getAssignees(issueNum);
