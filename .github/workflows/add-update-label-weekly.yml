@@ -1,6 +1,7 @@
 name: Schedule Sunday 0700
 
 on:
+  push:
   schedule:
     - cron:  '0 7 * * 0'
 
