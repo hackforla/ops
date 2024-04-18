@@ -42,16 +42,16 @@ async function main({ g, c }, columnId) {
       continue;
     }
 
-    // Add and remove labels as well as post comment if the issue's timeline indicates the issue is inactive, to be updated or up to date accordingly
+    // Add, remove labels, and post comment if the issue's timeline indicates the issue is inactive, needs an update, or is current.
     const responseObject = await isTimelineOutdated(timeline, issueNum, assignees)
-    console.log("🚀 ~ forawait ~ responseObject:", responseObject)
 
     if (responseObject.result === true && responseObject.labels === toUpdateLabel) { // 7-day outdated, add 'To Update !' label
       console.log(`Going to ask for an update now for issue #${issueNum}`);
       await removeLabels(issueNum, statusUpdatedLabel, inactiveLabel);
       await addLabels(issueNum, responseObject.labels);
       await postComment(issueNum, assignees, toUpdateLabel);
-    } else if (responseObject.result === true && responseObject.labels === inactiveLabel) { // 14-day outdated, add '2 Weeks Inactive' label
+    }
+    if (responseObject.result === true && responseObject.labels === inactiveLabel) { // 14-day outdated, add '2 Weeks Inactive' label
       console.log(`Going to ask for an update now for issue #${issueNum}`);
       await removeLabels(issueNum, toUpdateLabel, statusUpdatedLabel);
       await addLabels(issueNum, responseObject.labels);
@@ -190,15 +190,18 @@ async function removeLabels(issueNum, ...labels) {
   for (let label of labels) {
     try {
       // https://octokit.github.io/rest.js/v18#issues-remove-label
-      await github.rest.issues.removeLabel({
+      const response = await github.rest.issues.removeLabel({
         owner: context.repo.owner,
         repo: context.repo.repo,
         issue_number: issueNum,
         name: label,
       });
       console.log(`Removed "${label}" from issue #${issueNum}`);
+      console.log(`Remaining labels: "${response}"`);
     } catch (err) {
-      console.error(`Function failed to remove labels. Please refer to the error below: \n `, err);
+      const { message } = err;
+      if (err.status === 404) console.log({ status: 404, message, label })
+      else console.error(`Function failed to remove labels. Please refer to the error below: \n `, err);
     }
   }
 }
