@@ -44,6 +44,7 @@ async function main({ g, c }, columnId) {
 
     // Add and remove labels as well as post comment if the issue's timeline indicates the issue is inactive, to be updated or up to date accordingly
     const responseObject = await isTimelineOutdated(timeline, issueNum, assignees)
+    console.log("🚀 ~ forawait ~ responseObject:", responseObject)
 
     if (responseObject.result === true && responseObject.labels === toUpdateLabel) { // 7-day outdated, add 'To Update !' label
       console.log(`Going to ask for an update now for issue #${issueNum}`);
@@ -102,43 +103,46 @@ async function* getIssueNumsFromColumn(columnId) {
  * @param {Array} timeline a list of events in the timeline of an issue, retrieved from the issues API
  * @param {Number} issueNum the issue's number
  * @param {String} assignees a list of the issue's assignee's login username
- * @returns {Object} with result: true/false if timeline indicates the issue is outdated/inactive and labels: a string label that should be removed, retained or added to the issue
+ * @returns {Object} { result, labels } 
+ * - result: a boolean if timeline indicates the issue is outdated/inactive.
+ * - labels: a string label that should be removed, retained or added to the issue.
  */
 function isTimelineOutdated(timeline, issueNum, assignees) {
   let lastAssignedTimestamp = null;
   let lastCommentTimestamp = null;
 
   for (let i = timeline.length - 1; i >= 0; i--) {
-    let eventObj = timeline[i];
-    let eventType = eventObj.event;
-    const isLinkedIssue = findLinkedIssue(eventObj.source.issue.body) == issueNum
-    // checks if the 'body' (comment) of the event mentions fixes/resolves/closes this current issue
-    let isOpenLinkedPullRequest = eventType === 'cross-referenced' && isLinkedIssue && eventObj.source.issue.state === 'open';
+    const eventObj = timeline[i];
+    const eventType = eventObj.event;
 
-    // If cross-referenced and fixed/resolved/closed by assignee and the pull
-    // request is open, remove all update-related labels
-    // Once a PR is opened, we remove labels because we focus on the PR not the issue.
-    if (isOpenLinkedPullRequest && assignees.includes(eventObj.actor.login)) {
-      console.log(`Assignee fixes/resolves/closes Issue #${issueNum} in with an open pull request, remove all update-related labels`);
-      return { result: false, labels: '' } // remove all three labels
+    const isCrossReferencedEvent = eventType === 'cross-referenced';
+    // Checks if the 'body' (comment) of the event mentions fixes/resolves/closes this current issue.
+    const isLinkedIssue = isCrossReferencedEvent ? findLinkedIssue(eventObj.source.issue.body) == issueNum : false;
+    // If cross-referenced and fixed/resolved/closed by assignee and the pull request is open, remove all update-related labels.
+    const isOpenLinkedPullRequest = isCrossReferencedEvent && isLinkedIssue && eventObj.source.issue.state === 'open';
+
+    if (isOpenLinkedPullRequest) {
+      // Once a PR is opened, we remove labels because we focus on the PR not the issue.
+      if (isOpenLinkedPullRequest && assignees.includes(eventObj.actor.login)) {
+        console.log(`Assignee fixes/resolves/closes Issue #${issueNum} in with an open pull request, remove all update-related labels`);
+        return { result: false, labels: '' } // Remove all three labels
+      }
     }
 
-    // If the event is a linked PR and the PR is closed, it will continue through the
-    // rest of the conditions to receive the appropriate label.
-    else if (eventType === 'cross-referenced' && eventObj.source.issue.state === 'closed') {
+    // If the event is a linked PR and the PR is closed, continue the conditional checks to return the appropriate { result, labels }.
+    if (isCrossReferencedEvent && eventObj.source.issue.state === 'closed') {
       console.log(`Pull request linked to Issue #${issueNum} is closed.`);
     }
 
     let eventTimestamp = eventObj.updated_at || eventObj.created_at;
 
-    // Update the lastCommentTimestamp if this is the last (most recent) comment by an assignee
-    const isCommentByAssignees = assignees.includes(eventObj.actor.login)
-    if (!lastCommentTimestamp && eventType === 'commented' && isCommentByAssignees) {
+    // Update the lastCommentTimestamp if this is the last (most recent) comment by an assignee.
+    if (!lastCommentTimestamp && eventType === 'commented' && assignees.includes(eventObj.actor.login)) {
       lastCommentTimestamp = eventTimestamp;
     }
 
     // Update the lastAssignedTimestamp if this is the last (most recent) time an assignee was assigned to the issue
-    else if (!lastAssignedTimestamp && eventType === 'assigned' && assignees.includes(eventObj.assignee.login)) {
+    if (!lastAssignedTimestamp && eventType === 'assigned' && assignees.includes(eventObj.assignee.login)) {
       lastAssignedTimestamp = eventTimestamp;
     }
   }
