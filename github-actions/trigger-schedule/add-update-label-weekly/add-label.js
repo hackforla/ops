@@ -32,8 +32,9 @@ async function main({ g, c }, columnId) {
   github = g;
   context = c;
   // Retrieve all issue numbers from a column
-  const issueNums = [1] // getIssueNumsFromColumn(columnId);
+  const issueNums = getIssueNumsFromColumn(columnId);
   for await (const issueNum of issueNums) {
+    console.log("🚀 ~ main ~ issueNums:", issueNum)
     const timeline = await getTimeline(issueNum, github, context);
     const assignees = await getAssignees(issueNum);
     // Error handling
@@ -72,6 +73,8 @@ async function main({ g, c }, columnId) {
  * @returns {Array} of issue numbers
  */
 async function* getIssueNumsFromColumn(columnId) {
+  if (!columnId) console.error(`column id "${columnId}" is falsy.`);
+
   let page = 1;
   while (page < 100) {
     try {
@@ -80,10 +83,12 @@ async function* getIssueNumsFromColumn(columnId) {
         per_page: 100,
         page: page
       });
+      console.log("🚀 ~ function*getIssueNumsFromColumn ~ results:", results)
       if (results.data.length) {
         for (let card of results.data) {
           if (card.hasOwnProperty('content_url')) {
             const arr = card.content_url.split('/');
+            console.log("🚀 ~ function*getIssueNumsFromColumn ~ arr:", arr)
             yield arr.pop()
           }
         }
