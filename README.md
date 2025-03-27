@@ -1,5 +1,3 @@
-# proposed new ops wiki
-
 # Ops Community of Practice  
 
 Welcome to the Ops Community of Practice. We are happy you are here! 
