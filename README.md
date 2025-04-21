@@ -28,9 +28,9 @@ If you have not attended Hack for LA onboarding, plase read the [Guide for New V
 
 ### Step 2. Familiarize with Our Processes
 
-1. All Hack for LA teams use Kanban boards to encourage continuous improvements at all the level of the organization. Learn more about Kanban with our [Guide to How-To Use Our Github Kanban Board](https://docs.google.com/document/d/11Fe7mNdmPBP5bD_yLJ1C0_I1TmoK47AuHHrdhdDyWCs/edit#heading=h.nl3p4nf4eqb4) (working draft).
-2. Kanban is one of the popular frameworks used to implement agile development. Learn more about [Agile](https://www.atlassian.com/agile).
-3. Check out the currently [open Ops roles](https://github.com/hackforla/ops/projects/1).
+1. All Hack for LA teams use Kanban boards to encourage continuous improvements at all the level of the organization
+2. We use Kanban Project Boards to manage our project [CoP: DevOps: Project Board](https://github.com/orgs/hackforla/projects/73)
+3. Check out the currently [open Ops roles](https://github.com/orgs/hackforla/projects/67/views/7).
 
 
 ### Step 3. Join the CoP Meeting - Come Meet devs from All Teams
@@ -40,4 +40,4 @@ If you have not attended Hack for LA onboarding, plase read the [Guide for New V
 
 The Ops Community of Practice is one of many.  [See all our Communities of Practices](https://github.com/hackforla/communities-of-practice/blob/main/README.md)
 
-See our [Code of Conduct](./CODEOFCONDUCT.md) and [License](./LICENSE) documents.
+See our [Code of Conduct](https://www.hackforla.org/code-of-conduct/) and [License](./LICENSE) documents.
